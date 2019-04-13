@@ -1,21 +1,82 @@
-import React from "react"
-import { Link } from "gatsby"
+/**
+ * Index component is the home page for the website. It pulls in all the
+ * markdown articles as well as the site meta data from graphql. The homepage
+ * has its own specific template.
+ */
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Articles from '../components/articles'
+import ContactForm from '../components/contact-form'
+import Seo from '../components/seo'
+import Sidebar from '../components/sidebar'
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+import GlobalStyles from '../components/global.module.css'
+
+const IndexPage = ({ data }) => (
+  <div className={GlobalStyles.container}>
+    <Seo
+      keywords={[
+        'huojie',
+        'lulu',
+        'yoga',
+        'singapore',
+        'iyengar',
+        'instructor',
+        'teacher',
+        'class',
+      ]}
+      title="Huo Jie: Professional Iyengar-style Yoga Instructor in Singapore"
+    />
+    <Sidebar
+      description={data.site.siteMetadata.description}
+      email={data.site.siteMetadata.email}
+      linkedin={data.site.siteMetadata.linkedin}
+      title={data.site.siteMetadata.title}
+      phone={data.site.siteMetadata.phone}
+      wechat={data.site.siteMetadata.wechat}
+    />
+    <main className={GlobalStyles.mainContent}>
+      <Articles data={data.allMarkdownRemark} />
+      <ContactForm />
+    </main>
+  </div>
 )
 
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+}
+
 export default IndexPage
+
+export const query = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt(format: HTML)
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        description
+        email
+        linkedin
+        phone
+        title
+        wechat
+      }
+    }
+  }
+`
