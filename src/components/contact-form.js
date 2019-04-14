@@ -89,7 +89,9 @@ const ContactForm = () => (
     onSubmit={(formData, actions) => {
       setTimeout(() => {
         Axios.post('https://theoneyoga.prod.with-datafire.io/contact', formData)
-          .then(() => {
+          .then((response) => {
+            // eslint-disable-next-line
+            console.log(response)
             actions.resetForm()
             actions.setStatus({ success: 'Thanks! I\'ll be in Touch!' })
             actions.setSubmitting(false)

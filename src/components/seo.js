@@ -11,7 +11,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
 function SEO({
-  description, lang, meta, keywords, title,
+  description, lang, meta, keywords, robots, title,
 }) {
   const { site } = useStaticQuery(
     graphql`
@@ -37,6 +37,10 @@ function SEO({
         {
           name: 'description',
           content: metaDescription,
+        },
+        {
+          name: 'robots',
+          content: robots,
         },
         {
           property: 'og:title',
@@ -83,17 +87,19 @@ function SEO({
 }
 
 SEO.defaultProps = {
+  description: '',
+  keywords: [],
   lang: 'en',
   meta: [],
-  keywords: [],
-  description: '',
+  robots: 'follow',
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
+  keywords: PropTypes.arrayOf(PropTypes.string),
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
-  keywords: PropTypes.arrayOf(PropTypes.string),
+  robots: PropTypes.string,
   title: PropTypes.string.isRequired,
 }
 
