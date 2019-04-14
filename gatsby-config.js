@@ -7,6 +7,7 @@ module.exports = {
     phone: '+6581450422',
     linkedin: 'https://www.linkedin.com/in/jie-huo-794a96ab/',
     wechat: 'lulusnow0117',
+    services: ['1-on-1', 'small groups', 'video classes'],
   },
   plugins: [
     {

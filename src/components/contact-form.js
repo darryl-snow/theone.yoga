@@ -7,13 +7,27 @@
 import Axios from 'axios'
 import { css } from '@emotion/core'
 import { Formik } from 'formik'
+import PropTypes from 'prop-types'
 import React from 'react'
 import Loader from './loader'
 
 const form = css`
   background: #F4F4F4;
-  padding: 3rem;
+  overflow: hidden;
   position: relative;
+`
+
+const wrapper = css`
+  margin: 3rem;
+`
+
+const smallWrapper = css`
+  margin: 2rem auto;
+  width: 85%;
+
+  @media (min-width: 47em) {
+    width: 75%;
+  }
 `
 
 const title = css`
@@ -80,7 +94,7 @@ const overlay = css`
   z-index: 1;
 `
 
-const ContactForm = () => (
+const ContactForm = ({ page }) => (
   <Formik
     initialValues={{
       from: '',
@@ -124,59 +138,69 @@ const ContactForm = () => (
       status,
     }) => (
       <div css={form}>
-        <h2 css={title}>Contact Me</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label css={label} htmlFor="from">
-              <p>
-                Your email address:
-                <span css={error}>{errors.from && touched.from && errors.from}</span>
-              </p>
-              <input
-                css={input}
-                id="from"
-                name="from"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                placeholder="yourem@il.com"
-                type="email"
-                value={values.from}
-              />
-            </label>
-          </div>
-          <div>
-            <label css={label} htmlFor="message">
-              <p>
-                Write me a message:
-                <span css={error}>{errors.message && touched.message && errors.message}</span>
-              </p>
-              <textarea
-                css={input}
-                name="message"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.message}
-              />
-            </label>
-          </div>
-          <button css={button} disabled={isSubmitting} type="submit">
-            Send Message
-          </button>
-          {!isSubmitting ? '' : (
-            <div css={overlay}>
-              <h5 css={formStatus}>Sending&hellip;</h5>
-              <Loader />
+        <div css={page === 'article' ? smallWrapper : wrapper}>
+          <h2 css={title}>Contact Me</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label css={label} htmlFor="from">
+                <p>
+                  Your email address:
+                  <span css={error}>{errors.from && touched.from && errors.from}</span>
+                </p>
+                <input
+                  css={input}
+                  id="from"
+                  name="from"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  placeholder="yourem@il.com"
+                  type="email"
+                  value={values.from}
+                />
+              </label>
             </div>
-          )}
-          {!status || !status.success ? '' : (
-            <div css={overlay}>
-              <h5 css={formStatus}>{status.success}</h5>
+            <div>
+              <label css={label} htmlFor="message">
+                <p>
+                  Write me a message:
+                  <span css={error}>{errors.message && touched.message && errors.message}</span>
+                </p>
+                <textarea
+                  css={input}
+                  name="message"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.message}
+                />
+              </label>
             </div>
-          )}
-        </form>
+            <button css={button} disabled={isSubmitting} type="submit">
+              Send Message
+            </button>
+            {!isSubmitting ? '' : (
+              <div css={overlay}>
+                <h5 css={formStatus}>Sending&hellip;</h5>
+                <Loader />
+              </div>
+            )}
+            {!status || !status.success ? '' : (
+              <div css={overlay}>
+                <h5 css={formStatus}>{status.success}</h5>
+              </div>
+            )}
+          </form>
+        </div>
       </div>
     )}
   </Formik>
 )
+
+ContactForm.defaultProps = {
+  page: '',
+}
+
+ContactForm.propTypes = {
+  page: PropTypes.string,
+}
 
 export default ContactForm
