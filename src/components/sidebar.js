@@ -12,6 +12,20 @@ import {
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
+const sidebar = css`
+  height: 80vh;
+  left: 0;
+  position: relative;
+  top: 0;
+  width: 100%;
+
+  @media (min-width: 47em) {
+    height: 100vh;
+    position: fixed;
+    width: 35%;
+  }
+`
+
 const wrapper = css`
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
   min-height: 50vh;
@@ -154,85 +168,88 @@ class Sidebar extends React.Component {
           const imageData = data.background.childImageSharp.fluid
           const { modalOpen } = this.state
           return (
-            <BackgroundImage
-              fluid={imageData}
-              Tag="aside"
-            >
-              <div css={wrapper}>
-                <h1 css={heading}>{title}</h1>
-                <p css={paragraph}>{description}</p>
-                <ul css={list}>
-                  <li>
-                    <a
-                      aria-label="Phone me"
-                      css={listIcon}
-                      href={`tel:${phone}`}
-                      title="Phone me"
-                    >
-                      <FaMobileAlt aria-hidden="true" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      aria-label="Email me"
-                      css={listIcon}
-                      href={`mailto:${email}`}
-                      title="Email me"
-                    >
-                      <FaEnvelope />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      aria-label="Go to my Linkedin"
-                      css={listIcon}
-                      href={linkedin}
-                      title="Go to my Linkedin"
-                    >
-                      <FaLinkedin />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      aria-label="Add me on WeChat"
-                      css={listIcon}
-                      href={wechat}
-                      onClick={this.toggleModal}
-                      title="Add me on WeChat"
-                    >
-                      <FaWeixin />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      aria-label="Download my resume (PDF)"
-                      css={listIcon}
-                      download="HuoJie-Resume.pdf"
-                      href="../images/resume.pdf"
-                      title="Download my resume (PDF)"
-                    >
-                      <FaIdCard />
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div
-                className={modalOpen ? 'is-shown' : ''}
-                css={modal}
-                onClick={this.toggleModal}
-                onKeyPress={this.toggleModal}
-                role="button"
-                tabIndex="0"
+            <div css={sidebar}>
+              <BackgroundImage
+                fluid={imageData}
+                style={{ height: '100%' }}
+                Tag="div"
               >
-                <Img
-                  alt="My WeChat QR code"
-                  fluid={data.wechat.childImageSharp.fluid}
-                  imgStyle={{ objectFit: 'contain' }}
-                  objectFit="contain"
-                  style={{ width: '50%' }}
-                />
-              </div>
-            </BackgroundImage>
+                <div css={wrapper}>
+                  <h1 css={heading}>{title}</h1>
+                  <p css={paragraph}>{description}</p>
+                  <ul css={list}>
+                    <li>
+                      <a
+                        aria-label="Phone me"
+                        css={listIcon}
+                        href={`tel:${phone}`}
+                        title="Phone me"
+                      >
+                        <FaMobileAlt aria-hidden="true" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-label="Email me"
+                        css={listIcon}
+                        href={`mailto:${email}`}
+                        title="Email me"
+                      >
+                        <FaEnvelope />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-label="Go to my Linkedin"
+                        css={listIcon}
+                        href={linkedin}
+                        title="Go to my Linkedin"
+                      >
+                        <FaLinkedin />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-label="Add me on WeChat"
+                        css={listIcon}
+                        href={wechat}
+                        onClick={this.toggleModal}
+                        title="Add me on WeChat"
+                      >
+                        <FaWeixin />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-label="Download my resume (PDF)"
+                        css={listIcon}
+                        download="HuoJie-Resume.pdf"
+                        href="../images/resume.pdf"
+                        title="Download my resume (PDF)"
+                      >
+                        <FaIdCard />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div
+                  className={modalOpen ? 'is-shown' : ''}
+                  css={modal}
+                  onClick={this.toggleModal}
+                  onKeyPress={this.toggleModal}
+                  role="button"
+                  tabIndex="0"
+                >
+                  <Img
+                    alt="My WeChat QR code"
+                    fluid={data.wechat.childImageSharp.fluid}
+                    imgStyle={{ objectFit: 'contain' }}
+                    objectFit="contain"
+                    style={{ width: '50%' }}
+                  />
+                </div>
+              </BackgroundImage>
+            </div>
           )
         }}
       />

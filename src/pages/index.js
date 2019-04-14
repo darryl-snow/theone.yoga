@@ -29,14 +29,16 @@ const IndexPage = ({ data }) => (
       ]}
       title="Huo Jie: Professional Iyengar-style Yoga Instructor in Singapore"
     />
-    <Sidebar
-      description={data.site.siteMetadata.description}
-      email={data.site.siteMetadata.email}
-      linkedin={data.site.siteMetadata.linkedin}
-      title={data.site.siteMetadata.title}
-      phone={data.site.siteMetadata.phone}
-      wechat={data.site.siteMetadata.wechat}
-    />
+    <aside className={GlobalStyles.sideContent}>
+      <Sidebar
+        description={data.site.siteMetadata.description}
+        email={data.site.siteMetadata.email}
+        linkedin={data.site.siteMetadata.linkedin}
+        title={data.site.siteMetadata.title}
+        phone={data.site.siteMetadata.phone}
+        wechat={data.site.siteMetadata.wechat}
+      />
+    </aside>
     <main className={GlobalStyles.mainContent}>
       <Articles data={data.allMarkdownRemark} />
       <ContactForm />
