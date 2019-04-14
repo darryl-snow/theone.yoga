@@ -102,12 +102,25 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 1200,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-emotion',
     'gatsby-plugin-eslint',
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-remark',
+    'gatsby-plugin-slug',
     'gatsby-transformer-sharp',
   ],
 }

@@ -1,6 +1,7 @@
 ---
 title: "More Benefits of Yoga"
 date: "2019-04-13"
+slug: more-benefits
 ---
 
 The benefits of yoga provide both instant gratification and lasting transformation. In the fitness world, both are extremely important. Too much time with too few results can be incredibly discouraging, and monotonous routines week after week can lead to stagnation. Yoga can change your physical and mental capacity quickly, while preparing the mind and body for long-term health.
@@ -8,6 +9,8 @@ The benefits of yoga provide both instant gratification and lasting transformati
 ## Yoga is for Everyone
 
 Most yoga studios and local gyms offer yoga classes that are open to all generations and fitness levels. It’s exciting to enter a room full of young teens, athletes, middle-aged moms, older gentlemen, and even fitness buffs and body builders. Everyone can feel accepted and included and, unlike other sports or classes that focus on niche clients, yoga tends to offer open arms. Whether you like to say "Om" or you can’t stand the word “yogi”; whether you are 92, 53, or even 12, yoga can help you.
+
+![Huojie doing a pose](../../images/huojie-yoga-pose.jpeg)
 
 ## Yoga Encourages Overall Health and Wellness
 
