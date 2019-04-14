@@ -70,6 +70,14 @@ function SEO({
           name: 'twitter:description',
           content: metaDescription,
         },
+        {
+          name: 'msapplication-TileColor',
+          content: '#b189ba',
+        },
+        {
+          name: 'theme-color',
+          content: '#ffffff',
+        },
       ]
         .concat(
           keywords.length > 0
@@ -80,6 +88,20 @@ function SEO({
             : [],
         )
         .concat(meta)}
+      link={[
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '32x32',
+          href: '/images/favicon-32x32.png',
+        },
+        {
+          rel: 'icon',
+          type: 'image/png',
+          sizes: '16x16',
+          href: '/images/favicon-16x16.png',
+        },
+      ]}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
     />

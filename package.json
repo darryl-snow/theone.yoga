@@ -13,6 +13,7 @@
     "gatsby-background-image": "^0.2.9",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-emotion": "^4.0.6",
+    "gatsby-plugin-feed": "^2.1.0",
     "gatsby-plugin-manifest": "^2.0.27",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
