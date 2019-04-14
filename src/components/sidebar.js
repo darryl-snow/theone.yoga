@@ -118,6 +118,7 @@ const Sidebar = (props) => {
                     aria-label="Phone me"
                     css={listIcon}
                     href={`tel:${phone}`}
+                    title="Phone me"
                   >
                     <FaMobileAlt aria-hidden="true" />
                   </a>
@@ -127,6 +128,7 @@ const Sidebar = (props) => {
                     aria-label="Email me"
                     css={listIcon}
                     href={`mailto:${email}`}
+                    title="Email me"
                   >
                     <FaEnvelope />
                   </a>
@@ -136,6 +138,7 @@ const Sidebar = (props) => {
                     aria-label="Go to my Linkedin"
                     css={listIcon}
                     href={linkedin}
+                    title="Go to my Linkedin"
                   >
                     <FaLinkedin />
                   </a>
@@ -145,16 +148,18 @@ const Sidebar = (props) => {
                     aria-label="Add me on WeChat"
                     css={listIcon}
                     href={wechat}
+                    title="Add me on WeChat"
                   >
                     <FaWeixin />
                   </a>
                 </li>
                 <li>
                   <a
-                    aria-label="Download my resume (PDF)"
+                    aria-label="Download my résumé (PDF)"
                     css={listIcon}
                     download="HuoJie-Resume.pdf"
                     href="../images/resume.pdf"
+                    title="Download my résumé (PDF)"
                   >
                     <FaIdCard />
                   </a>
