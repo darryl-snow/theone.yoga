@@ -113,8 +113,6 @@ class Sidebar extends React.Component {
   constructor(props) {
     super(props)
 
-    this.modal = React.createRef()
-
     this.state = {
       modalOpen: false,
     }
@@ -223,7 +221,6 @@ class Sidebar extends React.Component {
                 css={modal}
                 onClick={this.toggleModal}
                 onKeyPress={this.toggleModal}
-                ref={this.modal}
                 role="button"
                 tabIndex="0"
               >
