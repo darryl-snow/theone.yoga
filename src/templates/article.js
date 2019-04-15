@@ -4,13 +4,16 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import ContactForm from '../components/contact-form'
 import Header from '../components/header'
+import Seo from '../components/seo'
 
 const container = css`
-  margin: 3rem auto;
+  margin: 2rem auto;
+  overflow: hidden;
   transition: 0.2s all ease-in-out;
   width: 85%;
 
-  @media (min-width: 47em) {
+  @media (min-width: 47rem) {
+    margin: 4rem auto;
     width: 75%;
   }
 
@@ -26,10 +29,10 @@ const container = css`
 
   h1 {
     font-size: 2em;
-    margin: 1.5em 0 0.75em 0;
+    margin: 0 0 0.75em 0;
     transition: 0.2s all ease-in-out;
 
-    @media (min-width: 47em) {
+    @media (min-width: 47rem) {
       font-size: 3em;
       margin: 0.75em 0;
     }
@@ -51,11 +54,13 @@ const container = css`
 
 const Article = ({ data }) => {
   const post = data.markdownRemark
+  const { title } = post.frontmatter
   return (
     <React.Fragment>
+      <Seo title={`${title} | Huo Jie`} />
       <Header />
       <div css={container}>
-        <h1>{post.frontmatter.title}</h1>
+        <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <ContactForm page="article" />

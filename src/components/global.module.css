@@ -372,7 +372,7 @@ h1, h2 {
   grid-template-rows: 80vh auto;
 }
 
-@media (min-width: 47em) {
+@media (min-width: 47rem) {
   .container {
     grid-template-columns: 35% 65%;
     grid-template-rows: auto;

@@ -19,7 +19,7 @@ const sidebar = css`
   top: 0;
   width: 100%;
 
-  @media (min-width: 47em) {
+  @media (min-width: 47rem) {
     height: 100vh;
     position: fixed;
     width: 35%;
@@ -33,7 +33,7 @@ const wrapper = css`
   position: relative;
   text-align: center;
 
-  @media (min-width: 47em) {
+  @media (min-width: 47rem) {
     text-align: left;
   }
 `
@@ -56,7 +56,7 @@ const list = css`
   margin: 0;
   padding: 0;
 
-  @media (min-width: 47em) {
+  @media (min-width: 47rem) {
     justify-content: flex-start;
   }
 
@@ -92,7 +92,7 @@ const listIcon = css`
     opacity: 1;
   }
 
-  @media (min-width: 47em) {
+  @media (min-width: 47rem) {
     font-size: 1em;
     height: 1em;
     padding: 0.5em;
