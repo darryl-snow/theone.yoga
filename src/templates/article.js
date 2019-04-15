@@ -30,12 +30,12 @@ const container = css`
 
   h1 {
     font-size: 2em;
-    margin: 0 0 0.75em 0;
+    margin: 0 0 0.5em 0;
     transition: 0.2s all ease-in-out;
 
     @media (min-width: 47rem) {
       font-size: 3em;
-      margin: 0.75em 0;
+      margin: 0.75em 0 0.25em 0;
     }
   }
 
@@ -53,6 +53,18 @@ const container = css`
   }
 `
 
+const meta = css`
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  display: flex;
+  font-size: 0.8em;
+  font-style: italic;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+`
+
 const shareLinks = css`
   @media (min-width: 47rem) {
     display: none;
@@ -61,14 +73,20 @@ const shareLinks = css`
 
 const Article = ({ data }) => {
   const post = data.markdownRemark
-  const { slug, title } = post.frontmatter
+  const { slug, title, date } = post.frontmatter
   const url = `https://theone.yoga/${slug}/`
   return (
     <React.Fragment>
-      <Seo title={`${title} | Huo Jie`} />
+      <Seo title={`${title} | Huo Jie`} description={post.excerpt} />
       <Header pageTitle={title} url={url} />
       <div css={container}>
-        <h1>{title}</h1>
+        <h1>
+          {title}
+        </h1>
+        <div css={meta}>
+          <span>{date}</span>
+          <span>{`Reading time: ${post.timeToRead} minutes`}</span>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div css={shareLinks}>
           <ShareLinks title={title} url={url} />
@@ -87,10 +105,12 @@ export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      excerpt
       timeToRead
       frontmatter {
         slug
         title
+        date
       }
     }
   }
