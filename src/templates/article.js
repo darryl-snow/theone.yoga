@@ -61,16 +61,17 @@ const shareLinks = css`
 
 const Article = ({ data }) => {
   const post = data.markdownRemark
-  const { title } = post.frontmatter
+  const { slug, title } = post.frontmatter
+  const url = `https://theone.yoga/${slug}/`
   return (
     <React.Fragment>
       <Seo title={`${title} | Huo Jie`} />
-      <Header />
+      <Header pageTitle={title} url={url} />
       <div css={container}>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <div css={shareLinks}>
-          <ShareLinks title="test" url="test" />
+          <ShareLinks title={title} url={url} />
         </div>
       </div>
       <ContactForm page="article" />
@@ -88,6 +89,7 @@ export const query = graphql`
       html
       timeToRead
       frontmatter {
+        slug
         title
       }
     }

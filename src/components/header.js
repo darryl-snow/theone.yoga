@@ -1,6 +1,7 @@
 import { css } from '@emotion/core'
 import { graphql, Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
 import React from 'react'
 import ShareLinks from './share-links'
 
@@ -58,7 +59,7 @@ const image = css`
   }
 `
 
-const Header = () => (
+const Header = ({ pageTitle, url }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -90,12 +91,17 @@ const Header = () => (
               style={{ overflow: 'visible', position: 'absolute' }}
             />
           </Link>
-          <ShareLinks title="test" url="test" />
+          <ShareLinks title={pageTitle} url={url} />
         </div>
       )
     }}
   />
 )
+
+Header.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+}
 
 export const query = graphql`
   query {
