@@ -5,15 +5,16 @@ import React from 'react'
 import ContactForm from '../components/contact-form'
 import Header from '../components/header'
 import Seo from '../components/seo'
+import ShareLinks from '../components/share-links'
 
 const container = css`
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   overflow: hidden;
   transition: 0.2s all ease-in-out;
   width: 85%;
 
   @media (min-width: 47rem) {
-    margin: 4rem auto;
+    margin: 4rem auto 2rem auto;
     width: 75%;
   }
 
@@ -52,6 +53,12 @@ const container = css`
   }
 `
 
+const shareLinks = css`
+  @media (min-width: 47rem) {
+    display: none;
+  }
+`
+
 const Article = ({ data }) => {
   const post = data.markdownRemark
   const { title } = post.frontmatter
@@ -62,6 +69,9 @@ const Article = ({ data }) => {
       <div css={container}>
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div css={shareLinks}>
+          <ShareLinks title="test" url="test" />
+        </div>
       </div>
       <ContactForm page="article" />
     </React.Fragment>
