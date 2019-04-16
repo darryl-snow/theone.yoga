@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import Services from './services'
 
 const sidebar = css`
   height: 80vh;
@@ -53,7 +54,7 @@ const list = css`
   font-size: 1.25em;
   justify-content: center;
   list-style-type: none;
-  margin: 0;
+  margin: 0.8em 0 0 0;
   padding: 0;
 
   @media (min-width: 47rem) {
@@ -141,7 +142,7 @@ class Sidebar extends React.Component {
 
   render() {
     const {
-      description, email, linkedin, phone, title, wechat,
+      description, email, linkedin, phone, services, title, wechat,
     } = this.props
 
     return (
@@ -177,6 +178,9 @@ class Sidebar extends React.Component {
                 <div css={wrapper}>
                   <h1 css={heading}>{title}</h1>
                   <p css={paragraph}>{description}</p>
+                  {services ? (
+                    <Services services={services} />
+                  ) : '' }
                   <ul css={list}>
                     <li>
                       <a
@@ -262,6 +266,7 @@ Sidebar.propTypes = {
   email: PropTypes.string.isRequired,
   linkedin: PropTypes.string.isRequired,
   phone: PropTypes.string.isRequired,
+  services: PropTypes.arrayOf(PropTypes.string).isRequired,
   title: PropTypes.string.isRequired,
   wechat: PropTypes.string.isRequired,
 }

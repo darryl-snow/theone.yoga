@@ -8,7 +8,9 @@ import Seo from '../components/seo'
 import ShareLinks from '../components/share-links'
 
 const container = css`
+  font-size: 1.25em;
   margin: 2rem auto 0 auto;
+  max-width: 80ch;
   overflow: hidden;
   transition: 0.2s all ease-in-out;
   width: 85%;
@@ -26,15 +28,16 @@ const container = css`
   h6 {
     margin: 1.5em 0;
     text-align: center;
+    transition: 0.2s all ease-in-out;
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 1.6em;
     margin: 0 0 0.5em 0;
     transition: 0.2s all ease-in-out;
 
     @media (min-width: 47rem) {
-      font-size: 3em;
+      font-size: 2.4em;
       margin: 0.75em 0 0.25em 0;
     }
   }
@@ -42,7 +45,6 @@ const container = css`
   p,
   ol,
   ul {
-    font-size: 1.25em;
     line-height: 1.5em;
     margin: 1em auto;
     max-width: 80ch;
@@ -57,7 +59,7 @@ const meta = css`
   border-bottom: 1px solid #eee;
   border-top: 1px solid #eee;
   display: flex;
-  font-size: 0.8em;
+  font-size: 0.65em;
   font-style: italic;
   justify-content: space-evenly;
   margin: 0;

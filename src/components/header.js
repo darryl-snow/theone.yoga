@@ -3,6 +3,7 @@ import { graphql, Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Services from './services'
 import ShareLinks from './share-links'
 
 const header = css`
@@ -58,6 +59,13 @@ const image = css`
     width: 5em;
   }
 `
+const servicesList = css`
+  display: none;
+
+  @media (min-width: 47rem) {
+    display: flex;
+  }
+`
 
 const Header = ({ pageTitle, url }) => (
   <StaticQuery
@@ -65,6 +73,7 @@ const Header = ({ pageTitle, url }) => (
       query {
         site {
           siteMetadata {
+            services
             title
           }
         }
@@ -78,11 +87,16 @@ const Header = ({ pageTitle, url }) => (
       }
     `}
     render={(data) => {
-      const { title } = data.site.siteMetadata
+      const { services, title } = data.site.siteMetadata
       return (
         <div css={header}>
           <Link css={link} title="More about Huo Jie" to="/">
             <h6 css={siteTitle}>{title}</h6>
+            <div css={servicesList}>
+              {services ? (
+                <Services services={services} />
+              ) : '' }
+            </div>
             <Img
               alt="Huo Jie"
               css={image}

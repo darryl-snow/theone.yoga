@@ -22,11 +22,21 @@ const wrapper = css`
 `
 
 const smallWrapper = css`
+  font-size: 1.25em;
   margin: 2rem auto;
+  max-width: 80ch;
   width: 85%;
 
   @media (min-width: 47em) {
     width: 75%;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+
+  form {
+    font-size: 0.8em;
   }
 `
 

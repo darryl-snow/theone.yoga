@@ -37,6 +37,7 @@ const IndexPage = ({ data }) => (
         title={data.site.siteMetadata.title}
         phone={data.site.siteMetadata.phone}
         wechat={data.site.siteMetadata.wechat}
+        services={data.site.siteMetadata.services}
       />
     </aside>
     <main className={GlobalStyles.mainContent}>
@@ -78,6 +79,7 @@ export const query = graphql`
         phone
         title
         wechat
+        services
       }
     }
   }

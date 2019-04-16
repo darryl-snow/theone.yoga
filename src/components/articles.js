@@ -8,7 +8,7 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 
 const articles = css`
-  padding: 3rem;
+  padding: 3rem 3rem 1rem 3rem;
 `
 
 const postcount = css`
