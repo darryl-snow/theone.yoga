@@ -1,14 +1,16 @@
 /**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
+ * SEO component that queries for data with Gatsby's useStaticQuery React hook.
  */
 
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
+
+import favicon16 from '../images/favicon-16x16.png'
+import favicon32 from '../images/favicon-32x32.png'
+
+import Styles from '../styles/variables'
 
 function SEO({
   description, lang, meta, keywords, robots, title,
@@ -72,11 +74,11 @@ function SEO({
         },
         {
           name: 'msapplication-TileColor',
-          content: '#b189ba',
+          content: Styles.colors.highlight,
         },
         {
           name: 'theme-color',
-          content: '#ffffff',
+          content: Styles.colors.background,
         },
       ]
         .concat(
@@ -93,13 +95,13 @@ function SEO({
           rel: 'icon',
           type: 'image/png',
           sizes: '32x32',
-          href: '/images/favicon-32x32.png',
+          href: `${favicon32}`,
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '16x16',
-          href: '/images/favicon-16x16.png',
+          href: `${favicon16}`,
         },
       ]}
       title={title}

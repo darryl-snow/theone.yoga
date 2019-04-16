@@ -1,3 +1,8 @@
+/**
+ * Header component renders a header to be displayed at the top of article
+ * pages.
+ */
+
 import { css } from '@emotion/core'
 import { graphql, Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
@@ -6,10 +11,12 @@ import React from 'react'
 import Services from './services'
 import ShareLinks from './share-links'
 
+import Styles from '../styles/variables'
+
 const header = css`
   align-items: center;
-  background: white;
-  border-bottom: 1px solid #eee;
+  background: ${Styles.colors.background};
+  border-bottom: 1px solid ${Styles.colors.borders};
   box-sizing: border-box;
   display: flex;
   left: 0;
@@ -20,23 +27,23 @@ const header = css`
   width: 100%;
   z-index: 3;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     position: fixed;
   }
 `
 
 const link = css`
-  color: #444;
-  transition: 0.2s all ease-in-out;
+  color: ${Styles.colors.text};
+  transition: ${Styles.animation.transition};
 
   &:visited {
-    color: #444;
+    color: ${Styles.colors.text};
   }
 
   &:active,
   &:focus,
   &:hover {
-    color: #b189ba;
+    color: ${Styles.colors.highlight};
   }
 `
 
@@ -51,10 +58,10 @@ const image = css`
   height: 4em;
   left: 1rem;
   top: 1rem;
-  transition: 0.2s all ease-in-out;
+  transition: ${Styles.animation.transition};
   width: 4em;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     height: 5em;
     width: 5em;
   }
@@ -62,7 +69,7 @@ const image = css`
 const servicesList = css`
   display: none;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     display: flex;
   }
 `
@@ -116,15 +123,5 @@ Header.propTypes = {
   pageTitle: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
 }
-
-export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`
 
 export default Header

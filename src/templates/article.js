@@ -1,3 +1,8 @@
+/**
+ * Article component renders an article based on a markdown file. It relies on
+ * a graphql query that fetches all markdown files.
+ */
+
 import { css } from '@emotion/core'
 import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
@@ -7,12 +12,14 @@ import Header from '../components/header'
 import Seo from '../components/seo'
 import ShareLinks from '../components/share-links'
 
+import Styles from '../styles/variables'
+
 const container = css`
   font-size: 1.25em;
   margin: 2rem auto 0 auto;
   max-width: 80ch;
   overflow: hidden;
-  transition: 0.2s all ease-in-out;
+  transition: ${Styles.animation.transition};
   width: 85%;
 
   @media (min-width: 47rem) {
@@ -26,15 +33,15 @@ const container = css`
   h4,
   h5,
   h6 {
-    margin: 1.5em 0;
+    margin: ${Styles.layout.spacing} 0;
     text-align: center;
-    transition: 0.2s all ease-in-out;
+    transition: ${Styles.animation.transition};
   }
 
   h1 {
     font-size: 1.6em;
     margin: 0 0 0.5em 0;
-    transition: 0.2s all ease-in-out;
+    transition: ${Styles.animation.transition};
 
     @media (min-width: 47rem) {
       font-size: 2.4em;
@@ -56,8 +63,8 @@ const container = css`
 `
 
 const meta = css`
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
+  border-bottom: 1px solid ${Styles.colors.borders};
+  border-top: 1px solid ${Styles.colors.borders};
   display: flex;
   font-size: 0.65em;
   font-style: italic;
@@ -75,11 +82,17 @@ const shareLinks = css`
 
 const Article = ({ data }) => {
   const post = data.markdownRemark
-  const { slug, title, date } = post.frontmatter
+  const {
+    date, lang, slug, title,
+  } = post.frontmatter
   const url = `https://theone.yoga/${slug}/`
   return (
     <React.Fragment>
-      <Seo title={`${title} | Huo Jie`} description={post.excerpt} />
+      <Seo
+        description={post.excerpt}
+        title={`${title} | Huo Jie`}
+        lang={lang}
+      />
       <Header pageTitle={title} url={url} />
       <div css={container}>
         <h1>
@@ -113,6 +126,7 @@ export const query = graphql`
         slug
         title
         date
+        lang
       }
     }
   }

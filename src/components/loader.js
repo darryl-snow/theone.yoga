@@ -5,9 +5,11 @@
 import { css } from '@emotion/core'
 import React from 'react'
 
+import Styles from '../styles/variables'
+
 const loader = css`
   box-sizing: border-box;
-  color: #b189ba;
+  color: ${Styles.colors.highlight};
   display: block;
   font-size: 0;
   height: 48px;
@@ -52,7 +54,7 @@ const firstChild = css`
 
 const secondChild = css`
   animation: square-jelly-box-shadow .6s -.1s linear infinite;
-  background: #000;
+  background: ${Styles.colors.shadow};
   border-radius: 50%;
   bottom: -9%;
   display: inline-block;

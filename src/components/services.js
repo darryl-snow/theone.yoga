@@ -1,6 +1,12 @@
+/**
+ * Services component renders a list of services based on props passed down.
+ */
+
 import { css } from '@emotion/core'
 import PropTypes from 'prop-types'
 import React from 'react'
+
+import Styles from '../styles/variables'
 
 const servicesList = css`
   display: flex;
@@ -15,7 +21,7 @@ const servicesList = css`
     content: ' / '
   }
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     justify-content: flex-start;
   }
 `
@@ -23,7 +29,7 @@ const servicesList = css`
 const Services = ({ services }) => (
   <ul css={servicesList}>
     {services.map(service => (
-      <li>{service}</li>
+      <li key={service}>{service}</li>
     ))}
   </ul>
 )

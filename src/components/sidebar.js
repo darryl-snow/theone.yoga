@@ -13,6 +13,8 @@ import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import Services from './services'
 
+import Styles from '../styles/variables'
+
 const sidebar = css`
   height: 80vh;
   left: 0;
@@ -20,7 +22,7 @@ const sidebar = css`
   top: 0;
   width: 100%;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     height: 100vh;
     position: fixed;
     width: 35%;
@@ -30,11 +32,11 @@ const sidebar = css`
 const wrapper = css`
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
   min-height: 50vh;
-  padding: 1.5rem;
+  padding: ${Styles.layout.spacing};
   position: relative;
   text-align: center;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     text-align: left;
   }
 `
@@ -57,7 +59,7 @@ const list = css`
   margin: 0.8em 0 0 0;
   padding: 0;
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     justify-content: flex-start;
   }
 
@@ -72,9 +74,9 @@ const list = css`
 
 const listIcon = css`
   align-items: center;
-  background: #fff;
+  background: ${Styles.colors.background};
   border-radius: 50%;
-  color: #222;
+  color: ${Styles.colors.text};
   cursor: pointer;
   display: flex;
   font-size: 1.5em;
@@ -89,11 +91,11 @@ const listIcon = css`
   &:active,
   &:focus,
   &:hover {
-    color: #b189ba;
+    color: ${Styles.colors.highlight};
     opacity: 1;
   }
 
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     font-size: 1em;
     height: 1em;
     padding: 0.5em;

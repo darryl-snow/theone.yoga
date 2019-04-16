@@ -2,6 +2,7 @@
 title: "More Benefits of Yoga"
 date: "2019-04-13"
 slug: more-benefits
+lang: en
 ---
 
 The benefits of yoga provide both instant gratification and lasting transformation. In the fitness world, both are extremely important. Too much time with too few results can be incredibly discouraging, and monotonous routines week after week can lead to stagnation. Yoga can change your physical and mental capacity quickly, while preparing the mind and body for long-term health.

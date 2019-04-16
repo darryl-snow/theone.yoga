@@ -7,6 +7,8 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 
+import Styles from '../styles/variables'
+
 const articles = css`
   padding: 3rem 3rem 1rem 3rem;
 `
@@ -24,7 +26,7 @@ const list = css`
 `
 
 const listitem = css`
-  margin: 0 0 3rem 0;
+  margin: 0 0 ${Styles.layout.spacing} 0;
 `
 
 const link = css`
@@ -34,7 +36,7 @@ const link = css`
   &:active,
   &:focus,
   &:hover {
-    color: #b189ba;
+    color: ${Styles.colors.highlight};
   }
 `
 

@@ -12,7 +12,7 @@ import ContactForm from '../components/contact-form'
 import Seo from '../components/seo'
 import Sidebar from '../components/sidebar'
 
-import GlobalStyles from '../components/global.module.css'
+import GlobalStyles from '../styles/global.module.css'
 
 const IndexPage = ({ data }) => (
   <div className={GlobalStyles.container}>

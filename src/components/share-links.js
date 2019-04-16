@@ -1,9 +1,16 @@
+/**
+ * ShareLinks component renders a list of ShareLinks using the content passed
+ * down in props. The networks to be shared on are hard-coded here.
+ */
+
 import { css } from '@emotion/core'
 import {
   FaLinkedin, FaFacebook, FaTwitter, FaWeibo,
 } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import React from 'react'
+
+import Styles from '../styles/variables'
 
 const list = css`
   display: flex;
@@ -14,7 +21,7 @@ const list = css`
 `
 
 const listItem = css`
-  color: #444;
+  color: ${Styles.colors.text};
   display: block;
   font-size: 1.25em;
   padding: 0.5em;
@@ -23,7 +30,7 @@ const listItem = css`
   &:active,
   &:focus,
   &:hover {
-    color: #b189ba;
+    color: ${Styles.colors.highlight};
   }
 `
 

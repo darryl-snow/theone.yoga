@@ -11,8 +11,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Loader from './loader'
 
+import Styles from '../styles/variables'
+
 const form = css`
-  background: #F4F4F4;
+  background: ${Styles.colors.backgroundAlt};
   overflow: hidden;
   position: relative;
 `
@@ -27,7 +29,7 @@ const smallWrapper = css`
   max-width: 80ch;
   width: 85%;
 
-  @media (min-width: 47em) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     width: 75%;
   }
 
@@ -45,15 +47,15 @@ const title = css`
 `
 
 const label = css`
-  color: #777;
+  color: ${Styles.colors.label};
 `
 
 const input = css`
   background-color: white;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${Styles.colors.borders};
   border-radius: 0.15em;
   box-sizing: border-box;
-  color: #444;
+  color: ${Styles.colors.text};
   display: block;
   font-size: 1.25em;
   padding: 0.75em;
@@ -61,22 +63,22 @@ const input = css`
 `
 
 const error = css`
-  color: #ee5253;
+  color: ${Styles.colors.error};
   font-size: 0.75em;
   margin-left: 1em;
 `
 
 const button = css`
-  background-color: #b189ba;
+  background-color: ${Styles.colors.highlight};
   border: none;
   border-radius: 0.15em;
   box-shadow: none;
-  color: white;
+  color: ${Styles.colors.background};
   cursor: pointer;
   margin-top: 1.5rem;
   opacity: 0.75;
   padding: 0.75em;
-  transition: 0.2s all ease-in-out;
+  transition: ${Styles.animation.transition};
 
   &:active,
   &:focus,
@@ -92,7 +94,7 @@ const formStatus = css`
 
 const overlay = css`
   align-items: center;
-  background: #F4F4F4;
+  background: ${Styles.colors.backgroundAlt};
   display: flex;
   flex-direction: column;
   height: calc(100% - 6rem - 2.5em);

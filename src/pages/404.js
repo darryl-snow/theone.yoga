@@ -1,9 +1,15 @@
-import React from 'react'
+/**
+ * This is the 404 page. It is rendered whenever the user attempts to access
+ * an unknown route. It randomly picks an Iyengar quote to display.
+ */
 
-import BackgroundImage from 'gatsby-background-image'
 import { css } from '@emotion/core'
+import BackgroundImage from 'gatsby-background-image'
 import { graphql, Link, StaticQuery } from 'gatsby'
+import React from 'react'
 import SEO from '../components/seo'
+
+import Styles from '../styles/variables'
 
 const background = css`
   background-repeat: no-repeat;
@@ -15,7 +21,7 @@ const container = css`
   align-items: center;
   background: rgba(0,0,0,0.25);
   box-shadow: inset 0 0 30vw black;
-  color: #fff;
+  color: ${Styles.colors.background};
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -30,11 +36,11 @@ const quote = css`
 `
 
 const link = css`
-  background-color: #b189ba;
+  background-color: ${Styles.colors.highlight};
   border: none;
   border-radius: 0.15em;
   box-shadow: none;
-  color: white;
+  color: ${Styles.colors.background};
   cursor: pointer;
   margin-top: 1.5rem;
   opacity: 0.75;
