@@ -5,6 +5,7 @@
 
 import { css } from '@emotion/core'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ContactForm from '../components/contact-form'
@@ -80,11 +81,23 @@ const shareLinks = css`
   }
 `
 
+const heroImageStyle = css``
+
 const Article = ({ data }) => {
   const post = data.markdownRemark
   const {
-    date, lang, slug, title,
+    date, lang, hero, slug, title,
   } = post.frontmatter
+
+  let heroImage
+  if (hero && hero.childImageSharp.fluid) {
+    heroImage = <Img css={heroImageStyle} fluid={hero.childImageSharp.fluid} />
+  } else if (hero) {
+    heroImage = <img alt={title} css={heroImageStyle} src={hero.publicURL} />
+  } else {
+    heroImage = null
+  }
+
   const url = `https://theone.yoga/${slug}/`
   return (
     <React.Fragment>
@@ -94,6 +107,7 @@ const Article = ({ data }) => {
         lang={lang}
       />
       <Header pageTitle={title} url={url} />
+      { heroImage }
       <div css={container}>
         <h1>
           {title}
@@ -123,10 +137,18 @@ export const query = graphql`
       excerpt
       timeToRead
       frontmatter {
+        date
+        hero {
+          publicURL
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        lang
         slug
         title
-        date
-        lang
       }
     }
   }
