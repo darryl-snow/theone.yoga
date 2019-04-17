@@ -2,10 +2,11 @@
  * Articles component renders a list of articles using data passed in props.
  */
 
-import PropTypes from 'prop-types'
-import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
+import ReactGA from 'react-ga'
+import React from 'react'
 
 import Styles from '../styles/variables'
 
@@ -41,7 +42,7 @@ const link = css`
 `
 
 const title = css`
-  font-size: 3em;
+  font-size: 2.5em;
   font-weight: 300;
   margin: 0;
 `
@@ -63,6 +64,12 @@ const excerpt = css`
 
 const Articles = ({ data }) => {
   const { totalCount, edges } = data
+  const logEvent = () => {
+    ReactGA.event({
+      category: 'homepage-article',
+      action: 'click',
+    })
+  }
   return (
     <div css={articles}>
       <h4 css={postcount}>
@@ -73,6 +80,7 @@ const Articles = ({ data }) => {
           <li css={listitem} key={node.id}>
             <Link
               css={link}
+              onClick={logEvent}
               to={node.fields.slug}
             >
               <h3 css={title}>{node.frontmatter.title}</h3>

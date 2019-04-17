@@ -8,6 +8,7 @@ import { graphql, Link, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import React from 'react'
+import ReactGA from 'react-ga'
 import Services from './services'
 import ShareLinks from './share-links'
 
@@ -95,9 +96,15 @@ const Header = ({ pageTitle, url }) => (
     `}
     render={(data) => {
       const { services, title } = data.site.siteMetadata
+      const logEvent = () => {
+        ReactGA.event({
+          category: 'header-logo',
+          action: 'click',
+        })
+      }
       return (
         <div css={header}>
-          <Link css={link} title="More about Huo Jie" to="/">
+          <Link css={link} onClick={logEvent} title="More about Huo Jie" to="/">
             <h6 css={siteTitle}>{title}</h6>
             <div css={servicesList}>
               {services ? (

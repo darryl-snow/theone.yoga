@@ -9,6 +9,7 @@ import { css } from '@emotion/core'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
+import ReactGA from 'react-ga'
 import Loader from './loader'
 
 import Styles from '../styles/variables'
@@ -121,7 +122,22 @@ const ContactForm = ({ page }) => (
             actions.resetForm()
             actions.setStatus({ success: 'Thanks! I\'ll be in Touch!' })
             actions.setSubmitting(false)
+            ReactGA.event({
+              category: 'contact-form',
+              action: 'sent',
+            })
           })
+          .catch((err) => {
+            ReactGA.event({
+              category: 'contact-form',
+              action: 'error',
+              value: err,
+            })
+          })
+        ReactGA.event({
+          category: 'contact-form',
+          action: 'submit',
+        })
       }, 400)
     }}
     validate={(values) => {

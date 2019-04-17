@@ -11,6 +11,7 @@ import {
 } from 'react-icons/fa'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
+import ReactGA from 'react-ga'
 import Services from './services'
 
 import Styles from '../styles/variables'
@@ -101,6 +102,10 @@ const listIcon = css`
     padding: 0.5em;
     width: 1em;
   }
+
+  svg {
+    pointer-events: none;
+  }
 `
 
 const modal = css`
@@ -137,9 +142,18 @@ class Sidebar extends React.Component {
 
   toggleModal = (e) => {
     e.preventDefault()
+    this.logEvent(e)
     this.setState(prevState => ({
       modalOpen: !prevState.modalOpen,
     }))
+  }
+
+  logEvent = (e) => {
+    const { action, target } = e.target.dataset
+    ReactGA.event({
+      category: target,
+      action,
+    })
   }
 
   render() {
@@ -188,7 +202,10 @@ class Sidebar extends React.Component {
                       <a
                         aria-label="Phone me"
                         css={listIcon}
+                        data-action="click"
+                        data-target="sidebar-phone"
                         href={`tel:${phone}`}
+                        onClick={this.logEvent}
                         title="Phone me"
                       >
                         <FaMobileAlt aria-hidden="true" />
@@ -198,7 +215,10 @@ class Sidebar extends React.Component {
                       <a
                         aria-label="Email me"
                         css={listIcon}
+                        data-action="click"
+                        data-target="sidebar-email"
                         href={`mailto:${email}`}
+                        onClick={this.logEvent}
                         title="Email me"
                       >
                         <FaEnvelope />
@@ -208,7 +228,10 @@ class Sidebar extends React.Component {
                       <a
                         aria-label="Go to my Linkedin"
                         css={listIcon}
+                        data-action="click"
+                        data-target="sidebar-linkedin"
                         href={linkedin}
+                        onClick={this.logEvent}
                         title="Go to my Linkedin"
                       >
                         <FaLinkedin />
@@ -218,6 +241,8 @@ class Sidebar extends React.Component {
                       <a
                         aria-label="Add me on WeChat"
                         css={listIcon}
+                        data-action="click"
+                        data-target="sidebar-wechat"
                         href={wechat}
                         onClick={this.toggleModal}
                         title="Add me on WeChat"
@@ -229,8 +254,11 @@ class Sidebar extends React.Component {
                       <a
                         aria-label="Download my resume (PDF)"
                         css={listIcon}
+                        data-action="click"
+                        data-target="sidebar-resume"
                         download="HuoJie-Resume.pdf"
                         href="../images/resume.pdf"
+                        onClick={this.logEvent}
                         title="Download my resume (PDF)"
                       >
                         <FaIdCard />
@@ -241,6 +269,8 @@ class Sidebar extends React.Component {
                 <div
                   className={modalOpen ? 'is-shown' : ''}
                   css={modal}
+                  data-action="click"
+                  data-target="sidebar-modal"
                   onClick={this.toggleModal}
                   onKeyPress={this.toggleModal}
                   role="button"

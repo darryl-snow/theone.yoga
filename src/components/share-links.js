@@ -9,6 +9,7 @@ import {
 } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import React from 'react'
+import ReactGA from 'react-ga'
 
 import Styles from '../styles/variables'
 
@@ -32,16 +33,31 @@ const listItem = css`
   &:hover {
     color: ${Styles.colors.highlight};
   }
+
+  svg {
+    pointer-events: none;
+  }
 `
 
 const ShareLinks = (props) => {
   const { title, url } = props
+  const logEvent = (e) => {
+    const { action, target } = e.target.dataset
+    ReactGA.event({
+      category: target,
+      action,
+    })
+  }
   return (
     <ul css={list}>
       <li>
         <a
+          aria-label="Share on Facebook"
           css={listItem}
+          data-action="click"
+          data-target="share-facebook"
           href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+          onClick={logEvent}
           title="Share on Facebook"
         >
           <FaFacebook />
@@ -49,8 +65,12 @@ const ShareLinks = (props) => {
       </li>
       <li>
         <a
+          aria-label="Share on Twitter"
           css={listItem}
+          data-action="click"
+          data-target="share-twitter"
           href={`https://twitter.com/home?status=${title} ${url}`}
+          onClick={logEvent}
           title="Share on Twitter"
         >
           <FaTwitter />
@@ -58,8 +78,12 @@ const ShareLinks = (props) => {
       </li>
       <li>
         <a
+          aria-label="Share on Linkedin"
           css={listItem}
+          data-action="click"
+          data-target="share-linkedin"
           href={`https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`}
+          onClick={logEvent}
           title="Share on Linkedin"
         >
           <FaLinkedin />
@@ -67,8 +91,12 @@ const ShareLinks = (props) => {
       </li>
       <li>
         <a
+          aria-label="Share on Weibo"
           css={listItem}
+          data-action="click"
+          data-target="share-weibo"
           href={`http://service.weibo.com/share/share.php?url=${url}&title=${title}`}
+          onClick={logEvent}
           title="Share on Weibo"
         >
           <FaWeibo />
