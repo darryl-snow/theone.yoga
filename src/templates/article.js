@@ -5,11 +5,11 @@
 
 import { css } from '@emotion/core'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ContactForm from '../components/contact-form'
 import Header from '../components/header'
+import Hero from '../components/hero'
 import Seo from '../components/seo'
 import ShareLinks from '../components/share-links'
 
@@ -23,8 +23,8 @@ const container = css`
   transition: ${Styles.animation.transition};
   width: 85%;
 
-  @media (min-width: 47rem) {
-    margin: 4rem auto 2rem auto;
+  @media (min-width: ${Styles.layout.breakpoint}) {
+    margin: 2rem auto 2rem auto;
     width: 75%;
   }
 
@@ -44,9 +44,9 @@ const container = css`
     margin: 0 0 0.5em 0;
     transition: ${Styles.animation.transition};
 
-    @media (min-width: 47rem) {
+    @media (min-width: ${Styles.layout.breakpoint}) {
       font-size: 2.4em;
-      margin: 0.75em 0 0.25em 0;
+      margin: 4rem 0 0.25em 0;
     }
   }
 
@@ -76,29 +76,18 @@ const meta = css`
 `
 
 const shareLinks = css`
-  @media (min-width: 47rem) {
+  @media (min-width: ${Styles.layout.breakpoint}) {
     display: none;
   }
 `
-
-const heroImageStyle = css``
 
 const Article = ({ data }) => {
   const post = data.markdownRemark
   const {
     date, lang, hero, slug, title,
   } = post.frontmatter
-
-  let heroImage
-  if (hero && hero.childImageSharp.fluid) {
-    heroImage = <Img css={heroImageStyle} fluid={hero.childImageSharp.fluid} />
-  } else if (hero) {
-    heroImage = <img alt={title} css={heroImageStyle} src={hero.publicURL} />
-  } else {
-    heroImage = null
-  }
-
   const url = `https://theone.yoga/${slug}/`
+
   return (
     <React.Fragment>
       <Seo
@@ -107,11 +96,9 @@ const Article = ({ data }) => {
         lang={lang}
       />
       <Header pageTitle={title} url={url} />
-      { heroImage }
+      { hero ? <Hero image={hero} title={title} /> : '' }
       <div css={container}>
-        <h1>
-          {title}
-        </h1>
+        { !hero ? (<h1>{title}</h1>) : '' }
         <div css={meta}>
           <span>{date}</span>
           <span>{`Reading time: ${post.timeToRead} minutes`}</span>
