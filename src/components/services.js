@@ -10,7 +10,7 @@ import Styles from '../styles/variables'
 
 const servicesList = css`
   display: flex;
-  font-size: 0.65em;
+  font-size: 0.8em;
   justify-content: center;
   list-style-type: none;
   margin: 0;
@@ -18,7 +18,7 @@ const servicesList = css`
   text-transform: uppercase;
 
   li:not(:last-of-type):after {
-    content: ' / '
+    content: '\00a0\u2044\00a0'
   }
 
   @media (min-width: ${Styles.layout.breakpoint}) {

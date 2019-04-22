@@ -198,6 +198,7 @@ const ContactForm = ({ page }) => (
                   name="message"
                   onBlur={handleBlur}
                   onChange={handleChange}
+                  placeholder="e.g. I'd like to arrange a class for <?> people on DD-MM..."
                   value={values.message}
                 />
               </label>
