@@ -15,7 +15,7 @@ import Styles from '../styles/variables'
 function SEO({
   description, lang, meta, keywords, robots, title,
 }) {
-  const { site } = useStaticQuery(
+  const { site, huojie } = useStaticQuery(
     graphql`
       query {
         site {
@@ -23,6 +23,14 @@ function SEO({
             title
             description
             author
+            linkedin
+          }
+        }
+        huojie: file(relativePath: { eq: "huojie-profile-pic.png" }) {
+          childImageSharp {
+            fluid(quality: 100) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
           }
         }
       }
@@ -30,6 +38,20 @@ function SEO({
   )
   const metaDescription = description || site.siteMetadata.description
   const pageTitle = title || site.siteMetadata.title
+  const schemaOrgJSONLD = {
+    '@context': 'http://schema.org',
+    '@type': 'Person',
+    familyName: 'Huo',
+    givenName: 'Jie',
+    worksFor: 'https://theone.yoga',
+    jobTitle: 'Yoga Instructor',
+    image: huojie.childImageSharp.fluid,
+    gender: 'http://schema.org/Female',
+    sameAs: [site.siteMetadata.linkedin],
+    telephone: site.siteMetadata.phone,
+    email: site.siteMetadata.email,
+    knowsAbout: 'Iyengar Yoga',
+  }
   return (
     <Helmet
       htmlAttributes={{
@@ -106,7 +128,11 @@ function SEO({
       ]}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-    />
+    >
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
+    </Helmet>
   )
 }
 

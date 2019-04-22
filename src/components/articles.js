@@ -48,7 +48,7 @@ const title = css`
 `
 
 const date = css`
-  font-size: 0.75em;
+  font-size: 0.85em;
   font-style: italic;
 `
 
@@ -143,7 +143,7 @@ class Articles extends React.Component {
     const currentArticles = nodes.slice(indexOfFirstArticle, indexOfLastArticle)
 
     const renderArticles = currentArticles.map(({ node }) => (
-      <li css={listitem} key={node.id}>
+      <li css={listitem} key={node.id} lang={node.frontmatter.lang}>
         <Link
           css={link}
           onClick={this.logEvent}
@@ -191,38 +191,6 @@ class Articles extends React.Component {
     )
   }
 }
-
-// const Articles = ({ data }) => {
-//   const { totalCount, edges } = data
-//   const logEvent = () => {
-//     ReactGA.event({
-//       category: 'homepage-article',
-//       action: 'click',
-//     })
-//   }
-//   return (
-//     <div css={articles}>
-//       <h4 css={postcount}>
-//         {totalCount === 1 ? `${totalCount} Article` : `${totalCount} Articles`}
-//       </h4>
-//       <ol css={list}>
-//         {edges.map(({ node }) => (
-//           <li css={listitem} key={node.id}>
-//             <Link
-//               css={link}
-//               onClick={logEvent}
-//               to={node.fields.slug}
-//             >
-//               <h3 css={title}>{node.frontmatter.title}</h3>
-//               <span css={date}>{node.frontmatter.date}</span>
-//               <div css={excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-//             </Link>
-//           </li>
-//         ))}
-//       </ol>
-//     </div>
-//   )
-// }
 
 Articles.propTypes = {
   data: PropTypes.object.isRequired,

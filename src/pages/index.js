@@ -26,6 +26,7 @@ const IndexPage = ({ data }) => (
         'instructor',
         'teacher',
         'class',
+        'private',
       ]}
       title="Huo Jie: Professional Iyengar-style Yoga Instructor in Singapore"
     />
@@ -62,7 +63,8 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "YYYY-M-D")
+            lang
           }
           fields {
             slug
