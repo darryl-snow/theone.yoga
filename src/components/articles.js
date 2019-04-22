@@ -27,7 +27,7 @@ const list = css`
 `
 
 const listitem = css`
-  margin: 0 0 ${Styles.layout.spacing} 0;
+  margin: 0 0 3em 0;
 `
 
 const link = css`

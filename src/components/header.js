@@ -67,6 +67,7 @@ const image = css`
     width: 5em;
   }
 `
+
 const servicesList = css`
   display: none;
 
@@ -103,7 +104,7 @@ const Header = ({ pageTitle, url }) => (
         })
       }
       return (
-        <div css={header}>
+        <header css={header}>
           <Link css={link} onClick={logEvent} title="More about Huo Jie" to="/">
             <h6 css={siteTitle}>{title}</h6>
             <div css={servicesList}>
@@ -120,7 +121,7 @@ const Header = ({ pageTitle, url }) => (
             />
           </Link>
           <ShareLinks title={pageTitle} url={url} />
-        </div>
+        </header>
       )
     }}
   />
