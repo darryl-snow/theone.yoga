@@ -28,7 +28,7 @@ const IndexPage = ({ data }) => (
         'class',
         'private',
       ]}
-      title="Huo Jie: Professional Iyengar-style Yoga Instructor in Singapore"
+      title={data.site.siteMetadata.description}
     />
     <aside className={GlobalStyles.sideContent}>
       <Sidebar

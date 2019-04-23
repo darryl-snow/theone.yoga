@@ -8,7 +8,7 @@ export default {
     borders: '#eeeeee',
     error: '#ee5253',
     highlight: '#b189ba',
-    label: '#777777',
+    label: '#666666',
     shadow: '#000000',
     text: '#444444',
   },

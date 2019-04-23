@@ -92,7 +92,7 @@ const Article = ({ data }) => {
     <React.Fragment>
       <Seo
         description={post.excerpt}
-        title={`${title} | Huo Jie`}
+        title={title}
         lang={lang}
       />
       <Header pageTitle={title} url={url} />

@@ -149,7 +149,7 @@ class Articles extends React.Component {
           onClick={this.logEvent}
           to={node.fields.slug}
         >
-          <h3 css={title}>{node.frontmatter.title}</h3>
+          <h2 css={title}>{node.frontmatter.title}</h2>
           <span css={date}>{node.frontmatter.date}</span>
           <div css={excerpt} dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </Link>
@@ -176,9 +176,9 @@ class Articles extends React.Component {
 
     return (
       <div css={articles}>
-        <h4 css={postcount}>
+        <p css={postcount}>
           {totalCount === 1 ? `${totalCount} Article` : `${totalCount} Articles`}
-        </h4>
+        </p>
         <ol css={list}>
           {renderArticles}
         </ol>

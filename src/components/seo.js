@@ -13,7 +13,7 @@ import favicon32 from '../images/favicon-32x32.png'
 import Styles from '../styles/variables'
 
 function SEO({
-  description, lang, meta, keywords, robots, title,
+  description, image, lang, meta, keywords, robots, title,
 }) {
   const { site, huojie } = useStaticQuery(
     graphql`
@@ -45,7 +45,7 @@ function SEO({
     givenName: 'Jie',
     worksFor: 'https://theone.yoga',
     jobTitle: 'Yoga Instructor',
-    image: huojie.childImageSharp.fluid,
+    image: huojie.childImageSharp.fluid.src,
     gender: 'http://schema.org/Female',
     sameAs: [site.siteMetadata.linkedin],
     telephone: site.siteMetadata.phone,
@@ -75,8 +75,16 @@ function SEO({
           content: metaDescription,
         },
         {
+          property: 'og:image',
+          content: image || huojie.childImageSharp.fluid.src,
+        },
+        {
           property: 'og:type',
           content: 'website',
+        },
+        {
+          property: 'og:url',
+          content: window.location.href,
         },
         {
           name: 'twitter:card',
@@ -138,6 +146,7 @@ function SEO({
 
 SEO.defaultProps = {
   description: '',
+  image: '',
   keywords: [],
   lang: 'en',
   meta: [],
@@ -146,6 +155,7 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
   description: PropTypes.string,
+  image: PropTypes.string,
   keywords: PropTypes.arrayOf(PropTypes.string),
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),

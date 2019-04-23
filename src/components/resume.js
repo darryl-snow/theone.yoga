@@ -344,7 +344,7 @@ const Resume = ({ languageCode }) => {
           <React.Fragment>
             <Seo
               description={description}
-              title={title}
+              title={description}
               lang={languageCode}
             />
             <header css={grid} style={{ borderBottom: `1px solid ${Styles.colors.borders}` }}>
