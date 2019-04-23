@@ -84,7 +84,7 @@ function SEO({
         },
         {
           property: 'og:url',
-          content: window.location.href,
+          content: typeof window !== 'undefined' ? window.location.href : '',
         },
         {
           name: 'twitter:card',
