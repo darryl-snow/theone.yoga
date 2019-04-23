@@ -450,7 +450,6 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-slug',
     'gatsby-transformer-sharp',
   ],
 }

@@ -20,7 +20,6 @@
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-plugin-react-helmet-canonical-urls": "^1.1.0",
     "gatsby-plugin-sharp": "^2.0.6",
-    "gatsby-plugin-slug": "^1.0.1",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-images": "^3.0.10",
     "gatsby-source-filesystem": "^2.0.29",
