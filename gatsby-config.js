@@ -3,6 +3,7 @@ module.exports = {
     title: 'Huo Jie',
     description: 'Iyengar-style yoga instructor in Singapore.',
     author: '@dazsnow',
+    siteUrl: 'https://theone.yoga',
     email: 'huojie1102@gmail.com',
     phone: '+65 8145 0422',
     linkedin: 'https://www.linkedin.com/in/jie-huo-794a96ab/',
