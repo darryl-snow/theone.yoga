@@ -17,9 +17,6 @@ lib-cov
 # Editor config
 .editorcfg
 
-# ESlint config
-.eslintrc.js
-
 # Coverage directory used by tools like istanbul
 coverage
 
