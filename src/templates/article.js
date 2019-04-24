@@ -92,6 +92,7 @@ const Article = ({ data }) => {
     <React.Fragment>
       <Seo
         description={post.excerpt}
+        image={hero}
         title={title}
         lang={lang}
       />

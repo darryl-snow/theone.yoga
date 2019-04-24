@@ -6,7 +6,7 @@ module.exports = {
     siteUrl: 'https://theone.yoga',
     email: 'huojie1102@gmail.com',
     phone: '+65 8145 0422',
-    linkedin: 'https://www.linkedin.com/in/jie-huo-794a96ab/',
+    linkedin: 'https://www.linkedin.com/in/huojie-yoga-instructor/',
     wechat: 'lulusnow0117',
     website: 'https://theone.yoga',
     services: ['1-on-1', 'small groups', 'video classes'],
