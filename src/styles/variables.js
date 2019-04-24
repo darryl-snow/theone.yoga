@@ -17,6 +17,7 @@ export default {
     spacing: '1.5rem',
   },
   typography: {
-    font: 'Roboto, \'Noto Sans SC\', sans-serif',
+    font: 'Roboto, sans-serif',
+    chineseFont: '"Noto Sans SC", sans-serif',
   },
 }

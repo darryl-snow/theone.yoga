@@ -2,7 +2,6 @@
 date: "2019-04-13"
 hero: ../../images/huojie-yoga-pose.jpeg
 lang: en
-slug: more-benefits
 title: "More Benefits of Yoga"
 ---
 

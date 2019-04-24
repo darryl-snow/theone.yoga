@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Huo Jie',
-    description: 'Iyengar-style yoga instructor in Singapore.',
+    description: 'Iyengar-style yoga instructor in Singapore',
     author: '@dazsnow',
     siteUrl: 'https://theone.yoga',
     email: 'huojie1102@gmail.com',
@@ -356,11 +356,11 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'Huo Jie',
-        short_name: 'huojie',
+        short_name: 'Huo Jie',
         start_url: '/',
         background_color: '#663399',
         theme_color: '#663399',
-        display: 'minimal-ui',
+        display: 'standalone',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
@@ -430,19 +430,23 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-gtag',
       options: {
-        trackingId: 'UA-57304409-2',
-        head: true,
-        anonymize: true,
-        respectDNT: true,
-        exclude: [],
-        optimizeId: '',
-        experimentId: '',
-        variationId: '',
-        sampleRate: 5,
-        siteSpeedSampleRate: 10,
-        cookieDomain: 'theone.yoga',
+        trackingIds: [
+          'UA-57304409-2',
+        ],
+        pluginConfig: {
+          head: true,
+          respectDNT: true,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://theone.yoga',
+        sitemap: 'https://theone.yoga/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     'gatsby-plugin-emotion',
@@ -450,6 +454,7 @@ module.exports = {
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     'gatsby-transformer-sharp',
   ],
 }

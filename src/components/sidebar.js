@@ -11,7 +11,6 @@ import {
 } from 'react-icons/fa'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import ReactGA from 'react-ga'
 import Services from './services'
 
 import Styles from '../styles/variables'
@@ -80,7 +79,7 @@ const listIcon = css`
   color: ${Styles.colors.text};
   cursor: pointer;
   display: flex;
-  font-size: 1.5em;
+  font-size: 1.25em;
   height: 1.5em;
   justify-content: center;
   margin: 0.25em;
@@ -150,9 +149,11 @@ class Sidebar extends React.Component {
 
   logEvent = (e) => {
     const { action, target } = e.target.dataset
-    ReactGA.event({
-      category: target,
-      action,
+
+    return typeof window !== 'undefined' && window.gtag('event', action, {
+      event_category: target,
+      event_label: '',
+      value: '',
     })
   }
 

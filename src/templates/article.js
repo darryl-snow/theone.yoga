@@ -84,9 +84,9 @@ const shareLinks = css`
 const Article = ({ data }) => {
   const post = data.markdownRemark
   const {
-    date, lang, hero, slug, title,
+    date, lang, hero, title,
   } = post.frontmatter
-  const url = `https://theone.yoga/${slug}/`
+  const url = `https://theone.yoga${post.fields.slug}`
 
   return (
     <React.Fragment>
@@ -97,7 +97,7 @@ const Article = ({ data }) => {
       />
       <Header pageTitle={title} url={url} />
       { hero ? <Hero image={hero} title={title} /> : '' }
-      <div css={container}>
+      <div css={container} lang={lang}>
         { !hero ? (<h1>{title}</h1>) : '' }
         <div css={meta}>
           <span>{date}</span>
@@ -123,6 +123,9 @@ export const query = graphql`
       html
       excerpt
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         date
         hero {
@@ -134,7 +137,6 @@ export const query = graphql`
           }
         }
         lang
-        slug
         title
       }
     }

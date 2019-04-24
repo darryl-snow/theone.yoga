@@ -5,13 +5,16 @@
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
-import ReactGA from 'react-ga'
 import React from 'react'
 
 import Styles from '../styles/variables'
 
 const articles = css`
-  padding: 3rem 3rem 1rem 3rem;
+  padding: 2rem ${Styles.layout.spacing} 0 ${Styles.layout.spacing};
+
+  @media (min-width: ${Styles.layout.breakpoint}) {
+    padding: 3rem 3rem 1rem 3rem;
+  }
 `
 
 const postcount = css`
@@ -126,12 +129,11 @@ class Articles extends React.Component {
     })
   }
 
-  logEvent = () => {
-    ReactGA.event({
-      category: 'homepage-article',
-      action: 'click',
-    })
-  }
+  logEvent = () => typeof window !== 'undefined' && window.gtag('event', 'click', {
+    event_category: 'homepage-article',
+    event_label: '',
+    value: '',
+  })
 
   render() {
     const {

@@ -9,7 +9,6 @@ import { css } from '@emotion/core'
 import { Formik } from 'formik'
 import PropTypes from 'prop-types'
 import React from 'react'
-import ReactGA from 'react-ga'
 import Loader from './loader'
 
 import Styles from '../styles/variables'
@@ -21,7 +20,11 @@ const form = css`
 `
 
 const wrapper = css`
-  margin: 3rem;
+  margin: ${Styles.layout.spacing};
+
+  @media (min-width: ${Styles.layout.breakpoint}) {
+    margin: 3rem;
+  }
 `
 
 const smallWrapper = css`
@@ -122,21 +125,21 @@ const ContactForm = ({ page }) => (
             actions.resetForm()
             actions.setStatus({ success: 'Thanks! I\'ll be in Touch!' })
             actions.setSubmitting(false)
-            ReactGA.event({
-              category: 'contact-form',
-              action: 'sent',
+            return typeof window !== 'undefined' && window.gtag('event', 'sent', {
+              event_category: 'contact-form',
+              event_label: '',
+              value: '',
             })
           })
-          .catch((err) => {
-            ReactGA.event({
-              category: 'contact-form',
-              action: 'error',
-              value: err,
-            })
-          })
-        ReactGA.event({
-          category: 'contact-form',
-          action: 'submit',
+          .catch(err => typeof window !== 'undefined' && window.gtag('event', 'error', {
+            event_category: 'contact-form',
+            event_label: '',
+            value: err,
+          }))
+        return typeof window !== 'undefined' && window.gtag('event', 'submit', {
+          event_category: 'contact-form',
+          event_label: '',
+          value: '',
         })
       }, 400)
     }}

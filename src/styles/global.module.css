@@ -354,9 +354,13 @@ template {
 
 body {
   color: #444;
-  font-family: Roboto, 'Noto Sans SC', sans-serif;
+  font-family: Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[lang="zh"] {
+  font-family: 'Noto Sans SC', sans-serif;
 }
 
 h1, h2 {

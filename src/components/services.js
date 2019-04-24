@@ -18,7 +18,7 @@ const servicesList = css`
   text-transform: uppercase;
 
   li:not(:last-of-type):after {
-    content: '\00a0\u2044\00a0'
+    content: '/';
   }
 
   @media (min-width: ${Styles.layout.breakpoint}) {

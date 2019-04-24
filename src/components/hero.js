@@ -46,6 +46,7 @@ const Hero = ({ image, title }) => {
     <BackgroundImage
       css={container}
       fluid={imageData}
+      style={{ backgroundPosition: 'center center' }}
       Tag="div"
     >
       <h1 css={heading}>{title}</h1>
