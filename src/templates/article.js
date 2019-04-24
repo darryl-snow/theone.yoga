@@ -61,6 +61,84 @@ const container = css`
   li {
     margin: 0.5em 0;
   }
+
+  blockquote {
+    background: ${Styles.colors.backgroundAlt};
+    border-radius: 3px;
+    font-size: 1.25em;
+    font-style: italic;
+    margin: 1rem auto 2rem auto;
+    padding: 0.3em;
+    position: relative;
+    text-align: center;
+    width: 80%;
+
+    &:before,
+    &:after {
+      background: none;
+      color: ${Styles.colors.backgroundAlt};
+      font-size: 4em;
+      position: absolute;
+      top: 15%;
+    }
+
+    &:before {
+      content: '“';
+      margin-right: 0.35em;
+      right: 100%;
+    }
+
+    &:after {
+      content: '”';
+      left: 100%;
+    }
+  }
+
+  table {
+    background: transparent;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    margin-bottom: ${Styles.layout.spacing};
+    max-width: 100%;
+    width: 100%;
+  }
+
+  thead th {
+    border-bottom: 2px solid ${Styles.colors.borders};
+    text-align: left;
+  }
+
+  th {
+    border-top: 1px solid ${Styles.colors.borders};
+    font-weight: 600;
+    padding: 0.75em;
+    vertical-align: bottom;
+  }
+
+  td {
+    border-top: 1px solid ${Styles.colors.borders};
+    padding: 0.75em;
+    vertical-align: bottom;
+  }
+
+  .embed-container {
+    height: 0;
+    margin-bottom: ${Styles.layout.spacing};
+    max-width: 100%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+  }
+
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 `
 
 const meta = css`
@@ -92,7 +170,7 @@ const Article = ({ data }) => {
     <React.Fragment>
       <Seo
         description={post.excerpt}
-        image={hero}
+        image={hero.publicURL}
         title={title}
         lang={lang}
       />

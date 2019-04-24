@@ -17,15 +17,19 @@ This is a paragraph.
 
 > This is a quotation.
 
-This is how you *加粗*. This is how you _斜体_. You can also ~do this~.
+This is how you **加粗**. This is how you _斜体_.
 
 You can add a line by doing
 
 ---
 
+Ordered list
+
 1. List item 1
 2. List item 2
 3. List item 3
+
+Unordered list
 
 * List item
 * List item
@@ -37,8 +41,9 @@ You can add a line by doing
 
 | If | you | want | to |
 |---|---|---|---|
-| show | a | table |  |
+| show | a | table | then |
+| you | can | do | this |
 
-For videos you can get the code from youtube. Click on Share > Embed.
+For videos you can copy this code and get the video url from Youtube (or wherever the video is). Go to the video and click on Share.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Hs4ZqJwR14o" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class='embed-container'><iframe src="https://www.youtube.com/embed/Hs4ZqJwR14o" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
