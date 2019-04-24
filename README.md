@@ -41,6 +41,8 @@ Edit gatsby-config.js to change things that appear on all pages.
 
 Run TEST
 
+This will open a browser window. Wait until you see "Compiled successfully" before refreshing the window.
+
 ## Deploying
 
 Run FABU
