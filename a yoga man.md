@@ -1,17 +1,16 @@
 ---
-date: "2019-04-13"
+date: "2019-04-28"
 hero: ../../images/huojie-yoga-pose.jpeg
 lang: en
-title: "The Article Title"
+title: "A MAN YOGA"
 ---
 
-In the bit at the top of this file, you need to put the date, the language (en or zh) and the title. If you include 'hero' then it will show the image in the top of the page with the title over the top. You can put all the images in the 'images' folder, but then you need to include the relative path to the file (e.g. ../../images/file.jpg).
+Yoga Asanas(postures) are good for your healthy in either physical body and mind. It means the Asanas should help you, not you to fit the perfect Asana’s shape. For example, Supta Virasana
 
-## Heading
-### Heading
-#### Heading
-##### Heading
-###### Heading
+photo
+
+
+
 
 This is a paragraph.
 

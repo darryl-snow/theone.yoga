@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Huo Jie',
-    description: 'Iyengar-style yoga instructor in Singapore',
+    description: 'Yoga instructor and student of Iyengar yoga, based in Singapore',
     author: '@dazsnow',
     siteUrl: 'https://theone.yoga',
     email: 'huojie1102@gmail.com',
@@ -12,7 +12,7 @@ module.exports = {
     services: ['1-on-1', 'small groups', 'video classes'],
     resume: {
       en: {
-        intro: 'I\'m a passionate Iyengar-style Yoga Instructor with over 8 years of teaching experience. In summer 2019 I\'ll be completing a 3 year Iyengar Teacher Training Course. I\'m looking for opportunities to teach large numbers of students, to practice, and to grow.',
+        intro: 'I\'m a passionate Yoga Instructor, and student of Iyengar yoga, with over 8 years of teaching experience. In summer 2019 I\'ll be completing a 3 year Iyengar Teacher Training Course. I\'m looking for opportunities to teach large numbers of students, to practice, and to grow.',
         location: 'Singapore',
         experience: [
           {

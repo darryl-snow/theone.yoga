@@ -63,6 +63,10 @@ const excerpt = css`
   p {
     margin: 0;
   }
+
+  blockquote {
+    margin: 0;
+  }
 `
 
 const pageNumberList = css`

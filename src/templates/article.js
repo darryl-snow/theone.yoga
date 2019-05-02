@@ -58,6 +58,11 @@ const container = css`
     max-width: 80ch;
   }
 
+  a {
+    color: ${Styles.colors.highlight};
+    text-decoration: underline;
+  }
+
   li {
     margin: 0.5em 0;
   }
@@ -170,7 +175,7 @@ const Article = ({ data }) => {
     <React.Fragment>
       <Seo
         description={post.excerpt}
-        image={hero.publicURL}
+        image={hero && typeof (hero) === 'object' && hero.publicURL}
         title={title}
         lang={lang}
       />
